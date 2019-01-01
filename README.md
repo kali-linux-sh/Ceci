@@ -28,5 +28,5 @@ Functions: Tiene funciones que ayudan al programa, pero no tiene nada que ver co
 
 Setup: Instala los paquetes necesarios.
 
-LICENSE: licensia.
+LICENSE: Licensia.
 ___
