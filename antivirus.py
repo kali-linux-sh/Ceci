@@ -3,6 +3,24 @@ from progress.bar import Bar, ChargingBar
 from error import Error
 from colorama import Fore
 
+class Configuracion:
+	def __init__(self):
+		self.__name__ = 'Ceci'
+		self.__version__ = '1.0'
+		self.__author__ = 'Annonymus100@gmail.com (Beresiarte Juan)'
+		self.__fecha__ = '1/1/2019'
+		self.__link__ = 'https://github.com/kali-linux-sh/Ceci'
+
+	def menu(self):
+		print("-" * 29)
+		print('[-] Author: ' + self.__author__)
+		print('[-] Version: ' + self.__version__)
+		print('[-] Updated in:' + self.__fecha__)
+		print('[-] Link: ' + Fore.GREEN + self.__link__ + Fore.RESET)
+		print("-" * 29)
+		input("")
+		os.system('clear')
+
 class Antivirus(object):
 	def __init__(self):
 		try:
@@ -16,6 +34,7 @@ class Antivirus(object):
 	def init__(self, escaner, funciones):
 
 		#Datos del usuario
+		self.config = Configuracion()
 		self.console = lambda x: os.system(x)
 		self.usuario = {
 		'nombre':pwd.getpwuid(os.getuid()).pw_name,
@@ -42,14 +61,15 @@ class Antivirus(object):
 		os.system("clear")
 
 		acciones = {
-		'8':self.salir,
+		'9':self.salir,
 		'1':self.escaner.scan,
 		'2':self.escanear,
 		'3':self.escaner.escaner,
 		'4':self.escaner.show_keys_t,
 		'5':self.escaner.save_keys,
 		'6':self.escaner.show_keys_g,
-		'7':self.escaner.save_key
+		'7':self.escaner.save_key,
+		'8':self.config.menu
 		}
 
 		while True:
@@ -92,10 +112,10 @@ class Antivirus(object):
 
 	def run(self):
 		print(self.logo)
-		barra = ChargingBar('Leyendo configuración:', max=10)
+		barra = ChargingBar('Cargando', max=30, fill='⬛', width=25)
 
-		for i in range(11):
-			time.sleep(0.4)
+		for i in range(31):
+			time.sleep(0.1)
 			barra.next()
 
 		self.escaner._abrir_keys()
@@ -113,7 +133,8 @@ class Antivirus(object):
 [5]- Guardar keys
 [6]- Mostrar keys guardadas
 [7]- Guardar key especifica
-[8]- Salir
+[8]- Configuración
+[9]- Salir
 """
 		print(menu)
 		return str(input("[--> "))
