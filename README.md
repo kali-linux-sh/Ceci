@@ -11,5 +11,7 @@ Inicie 'main.py' y listo
 - re
 - pwd
 - random
+
+
 Si no sabe como instalar los paquetes ejecute 'setup.py'
 ___
