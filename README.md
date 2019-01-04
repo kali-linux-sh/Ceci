@@ -30,3 +30,4 @@ Setup: Instala los paquetes necesarios.
 
 LICENSE: Licensia.
 ___
+<img src="logo.png"></img>
